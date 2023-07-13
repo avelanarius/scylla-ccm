@@ -16,7 +16,7 @@ import time
 import tempfile
 import logging
 from itertools import zip_longest
-from typing import Callable, Optional, TextIO, Union
+from typing import Callable, Optional, TextIO, Union, List
 
 import yaml
 from boto3.session import Session
@@ -924,7 +924,7 @@ def assert_jdk_valid_for_cassandra_version(cassandra_version):
         exit(1)
 
 
-def aws_bucket_ls(s3_url: str) -> list[str]:
+def aws_bucket_ls(s3_url: str) -> List[str]:
     bucket_object = s3_url.replace('https://s3.amazonaws.com/', '').split('/')
     prefix = '/'.join(bucket_object[1:])
 
